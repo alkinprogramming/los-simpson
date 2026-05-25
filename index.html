@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Simpson - Estereotipos y Caracteres</title>
+    <title>Los Simpson - Estereotipos y Conspiraciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -71,7 +71,64 @@
             flex-direction: column;
         }
 
-        /* Cambiamos la tabla por una rejilla de tarjetas modernas */
+        /* Nueva sección para las conspiraciones */
+        .conspiracy-section {
+            margin-bottom: 4rem;
+            background-color: var(--blanco);
+            border: 3px solid var(--marron-donut);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(112, 65, 38, 0.1);
+        }
+
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.8rem;
+            color: var(--azul-marge);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .conspiracy-intro {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .conspiracy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .conspiracy-card {
+            background-color: var(--gris-claro);
+            border: 2px solid var(--marron-donut);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .conspiracy-card h3 {
+            margin-top: 0;
+            color: var(--marron-donut);
+            font-size: 1.3rem;
+            border-bottom: 2px dashed var(--rosa-donut);
+            padding-bottom: 0.5rem;
+        }
+
+        .conspiracy-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .conspiracy-card strong {
+            color: var(--azul-marge);
+        }
+
+        /* Rejilla de tarjetas de personajes */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -201,6 +258,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -227,8 +285,47 @@
     </header>
 
     <main>
+        <section class="conspiracy-section">
+            <h2 class="section-title">¿Adivinos del Futuro o Sátira Genial?</h2>
+            <p class="conspiracy-intro">
+                Existe el mito popular de que <strong>Los Simpson</strong> actúan como un Nostradamus moderno capaz de predecir conspiraciones globales. Sin embargo, la realidad es matemática y sociológica: con más de 35 años al aire, guionistas brillantes de Harvard y un enfoque satírico extremo, la probabilidad de que la realidad alcance a sus chistes más absurdos es muy alta. <strong>No adivinan conspiraciones; retratan y exageran nuestra realidad.</strong>
+            </p>
+            
+            <div class="conspiracy-grid">
+                <div class="conspiracy-card">
+                    <h3>1. Presidencia de Trump</h3>
+                    <p><strong>El Mito:</strong> Predijeron que Donald Trump ganaría las elecciones e hicieron una toma exacta en unas escaleras mecánicas.</p>
+                    <p><strong>La Realidad:</strong> Trump ya intentaba postularse en el año 2000. Los guionistas buscaban un nombre absurdo para justificar la quiebra del país antes de que Lisa asumiera el cargo. La escena idéntica de la escalera mecánica se animó en <strong>2015</strong>, <em>después</em> de que el evento real ocurriera.</p>
+                </div>
+                
+                <div class="conspiracy-card">
+                    <h3>2. El Atentado del 11S</h3>
+                    <p><strong>El Mito:</strong> Una revista con el precio de 9 dólares al lado de las Torres Gemelas formaba intencionadamente el código "9/11" en 1997.</p>
+                    <p><strong>La Realidad:</strong> Se trató de una desafortunada coincidencia visual de diseño gráfico. Se necesitaba un precio de autobús muy barato (9$) y el fondo icónico de Nueva York colocó el 11 de fondo.</p>
+                </div>
+                
+                <div class="conspiracy-card">
+                    <h3>3. Votos Electrónicos Trucados</h3>
+                    <p><strong>El Mito:</strong> En 2008 predijeron la conspiración de manipulación de votos que afectaría a Obama en 2012.</p>
+                    <p><strong>La Realidad:</strong> No fue una predicción del futuro, sino una crítica directa a los fallos técnicos que ya habían ocurrido masivamente en el mundo real durante las elecciones presidenciales de EE. UU. en 2004.</p>
+                </div>
+                
+                <div class="conspiracy-card">
+                    <h3>4. Virus del Ébola y Pandemias</h3>
+                    <p><strong>El Mito:</strong> Marge sostiene un libro sobre el Ébola años antes del brote, y la "Gripe de Osaka" anticipó el Covid-19.</p>
+                    <p><strong>La Realidad:</strong> El virus del Ébola fue descubierto en 1976 y era muy conocido por los brotes de los años 90. Satirizar la paranoia global ante las gripes importadas es un tropo recurrente en la comedia clásica.</p>
+                </div>
+
+                <div class="conspiracy-card">
+                    <h3>5. El Espionaje de la NSA</h3>
+                    <p><strong>El Mito:</strong> En la película de 2007 revelaron que el gobierno estadounidense escuchaba las llamadas antes de las filtraciones de Snowden en 2013.</p>
+                    <p><strong>La Realidad:</strong> El espionaje telefónico masivo gubernamental ha sido una de las teorías de conspiración y críticas políticas más recurrentes de la cultura pop desde el escándalo de Watergate en los años 70.</p>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title">Análisis de Personajes</h2>
         <div class="cards-grid" id="character-grid">
-            <!-- PÁGINA 1 -->
             <div class="character-card">
                 <div class="card-header">
                     <h2 class="character-name">Homer Simpson</h2>
@@ -329,7 +426,6 @@
                 </div>
             </div>
 
-            <!-- PÁGINA 2 (NUEVOS PERSONAJES) -->
             <div class="character-card">
                 <div class="card-header">
                     <h2 class="character-name">Waylon Smithers</h2>
@@ -431,7 +527,6 @@
             </div>
         </div>
 
-        <!-- Contenedor del Paginador Dinámico -->
         <div class="pagination-container" id="pagination-controls"></div>
     </main>
 
@@ -439,7 +534,6 @@
         <p>Hecho con 💛 y rosquillas</p>
     </footer>
 
-    <!-- Lógica del Paginador sin alterar el diseño base -->
     <script>
         const CARDS_PER_PAGE = 10;
         const grid = document.getElementById('character-grid');
@@ -462,7 +556,10 @@
             });
 
             renderControls();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Desplazamiento suave modificado para ir al inicio de la sección de personajes, no arriba de todo
+            if(page > 1 || currentPage !== 1) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function renderControls() {
