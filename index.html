@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpson - Estereotipos y Caracteres</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amarillo-simpson: #FFD43F;
+            --amarillo-suave: #FFF1BD;
+            --azul-marge: #2E72B6;
+            --marron-donut: #704126;
+            --rosa-donut: #F1A7C4;
+            --blanco: #FFFFFF;
+            --gris-oscuro: #1A1A1A;
+            --gris-claro: #F8F9FA;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--amarillo-suave);
+            color: var(--gris-oscuro);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--azul-marge);
+            color: var(--blanco);
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 6px solid var(--marron-donut);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            color: var(--amarillo-simpson);
+            text-shadow: 4px 4px 0px var(--marron-donut), -2px -2px 0px var(--marron-donut), 2px -2px 0px var(--marron-donut), -2px 2px 0px var(--marron-donut);
+        }
+
+        header p {
+            margin: 1rem 0 0 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        /* Cambiamos la tabla por una rejilla de tarjetas modernas */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .character-card {
+            background-color: var(--blanco);
+            border-radius: 16px;
+            border: 3px solid var(--marron-donut);
+            box-shadow: 0 8px 16px rgba(112, 65, 38, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(112, 65, 38, 0.3);
+            border-color: var(--azul-marge);
+        }
+
+        .card-header {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-bottom: 2px dashed #E0E0E0;
+            transition: background-color 0.3s ease;
+        }
+
+        .character-card:hover .card-header {
+            background-color: rgba(46, 114, 182, 0.05);
+        }
+
+        .character-name {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--azul-marge);
+            margin: 0 0 0.75rem 0;
+            letter-spacing: 1px;
+        }
+
+        .badge-estereotipo {
+            background-color: var(--rosa-donut);
+            color: var(--marron-donut);
+            border: 2px solid var(--marron-donut);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 2px 2px 0px rgba(112, 65, 38, 0.2);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--marron-donut);
+            color: var(--amarillo-simpson);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: auto;
+            border-top: 5px solid var(--rosa-donut);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animación de entrada para las tarjetas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .character-card {
+            animation: fadeInUp 0.5s ease backwards;
+        }
+
+        /* Retraso escalonado para la animación de las tarjetas */
+        .character-card:nth-child(1) { animation-delay: 0.1s; }
+        .character-card:nth-child(2) { animation-delay: 0.15s; }
+        .character-card:nth-child(3) { animation-delay: 0.2s; }
+        .character-card:nth-child(4) { animation-delay: 0.25s; }
+        .character-card:nth-child(5) { animation-delay: 0.3s; }
+        .character-card:nth-child(6) { animation-delay: 0.35s; }
+        .character-card:nth-child(7) { animation-delay: 0.4s; }
+        .character-card:nth-child(8) { animation-delay: 0.45s; }
+        .character-card:nth-child(9) { animation-delay: 0.5s; }
+        .character-card:nth-child(10) { animation-delay: 0.55s; }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Los Simpson</h1>
+        <p>Análisis de Estereotipos vs. Carácter Real</p>
+    </header>
+
+    <main>
+        <div class="cards-grid">
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Homer Simpson</h2>
+                    <span class="badge-estereotipo">Padre de familia torpe</span>
+                </div>
+                <div class="card-body">
+                    Impulsivo, perezoso y con una obsesión insaciable por la comida y la cerveza. Aunque tiene un corazón noble, su bajísimo coeficiente intelectual y su egoísmo infantil lo meten en problemas constantemente.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Marge Simpson</h2>
+                    <span class="badge-estereotipo">Ama de casa suburbana</span>
+                </div>
+                <div class="card-body">
+                    La brújula moral y la voz de la razón de la familia. Es ultra-paciente, un poco ingenua y tiene una necesidad compulsiva de orden y aprobación social, reprimiendo a veces sus propias frustraciones.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Bart Simpson</h2>
+                    <span class="badge-estereotipo">Niño rebelde / "Terror del aula"</span>
+                </div>
+                <div class="card-body">
+                    Bromista, audaz y un imán para los problemas. No es malo por naturaleza, sino que busca atención y se aburre fácilmente; es leal a sus amigos y esconde un lado vulnerable.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Lisa Simpson</h2>
+                    <span class="badge-estereotipo">Niña prodigio intelectual</span>
+                </div>
+                <div class="card-body">
+                    Activista, vegetariana, budista y música de jazz. Es superdotada pero cínica, lucha constantemente con la frustración de ser incomprendida en un pueblo mediocre, cayendo a veces en la soberbia.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Sr. Burns</h2>
+                    <span class="badge-estereotipo">Magnate despiadado</span>
+                </div>
+                <div class="card-body">
+                    Una caricatura viviente del capitalismo del siglo XIX. Es físicamente debilucho, maligno por pura diversión, y está tan desconectado del mundo moderno que usa expresiones de hace cien años.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Ned Flanders</h2>
+                    <span class="badge-estereotipo">Vecino perfecto y molesto</span>
+                </div>
+                <div class="card-body">
+                    Devoto religioso llevado al extremo del ridículo, pero genuinamente bondadoso, optimista y generoso. Su optimismo es su mayor virtud y su mayor defecto.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Apu Nahasapeemapetilon</h2>
+                    <span class="badge-estereotipo">Inmigrante de tienda</span>
+                </div>
+                <div class="card-body">
+                    Un adicto al trabajo con un doctorado en informática. Es un optimista incansable, un padre de octillizos estresado y un devoto hindú que acepta vender productos caducados con una sonrisa.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Nelson Muntz</h2>
+                    <span class="badge-estereotipo">Matón de la escuela</span>
+                </div>
+                <div class="card-body">
+                    Detrás de su clásico "¡Ja-ja!" hay un niño abandonado por sus padres y profundamente pobre, que encuentra consuelo en la violencia pero que esconde un lado sensible.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Krusty el Payaso</h2>
+                    <span class="badge-estereotipo">Ídolo infantil alegre</span>
+                </div>
+                <div class="card-body">
+                    Fuera de cámaras es un hombre cínico, deprimido, adicto al juego y consumido por el negocio del entretenimiento, con una relación rota con su padre rabino.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Jefe Wiggum</h2>
+                    <span class="badge-estereotipo">Policía incompetente</span>
+                </div>
+                <div class="card-body">
+                    Motivado casi exclusivamente por las rosquillas y la comida. Su corrupción nace de la pura pereza y la estupidez, no de una mente criminal o de la maldad.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Hecho con 💛 y rosquillas</p>
+    </footer>
+
+</body>
+
+</html>
