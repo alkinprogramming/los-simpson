@@ -67,6 +67,8 @@
             margin: 3rem auto;
             padding: 0 1.5rem;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Cambiamos la tabla por una rejilla de tarjetas modernas */
@@ -133,6 +135,51 @@
             flex: 1;
         }
 
+        /* Estilos del Paginador */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination-button {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            background-color: var(--blanco);
+            color: var(--marron-donut);
+            border: 3px solid var(--marron-donut);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 2px 2px 0px var(--marron-donut);
+        }
+
+        .pagination-button:hover:not(:disabled) {
+            background-color: var(--rosa-donut);
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0px var(--marron-donut);
+        }
+
+        .pagination-button:active:not(:disabled) {
+            transform: translateY(0px);
+            box-shadow: 2px 2px 0px var(--marron-donut);
+        }
+
+        .pagination-button.active {
+            background-color: var(--azul-marge);
+            color: var(--blanco);
+            border-color: var(--marron-donut);
+        }
+
+        .pagination-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         footer {
             text-align: center;
             padding: 2.5rem;
@@ -164,17 +211,11 @@
             animation: fadeInUp 0.5s ease backwards;
         }
 
-        /* Retraso escalonado para la animación de las tarjetas */
-        .character-card:nth-child(1) { animation-delay: 0.1s; }
-        .character-card:nth-child(2) { animation-delay: 0.15s; }
-        .character-card:nth-child(3) { animation-delay: 0.2s; }
-        .character-card:nth-child(4) { animation-delay: 0.25s; }
-        .character-card:nth-child(5) { animation-delay: 0.3s; }
-        .character-card:nth-child(6) { animation-delay: 0.35s; }
-        .character-card:nth-child(7) { animation-delay: 0.4s; }
-        .character-card:nth-child(8) { animation-delay: 0.45s; }
-        .character-card:nth-child(9) { animation-delay: 0.5s; }
-        .character-card:nth-child(10) { animation-delay: 0.55s; }
+        /* Retraso escalonado dinámico manejado por clases base */
+        .character-card:nth-child(1n) { animation-delay: 0.05s; }
+        .character-card:nth-child(2n) { animation-delay: 0.1s; }
+        .character-card:nth-child(3n) { animation-delay: 0.15s; }
+        .character-card:nth-child(4n) { animation-delay: 0.2s; }
     </style>
 </head>
 
@@ -186,7 +227,8 @@
     </header>
 
     <main>
-        <div class="cards-grid">
+        <div class="cards-grid" id="character-grid">
+            <!-- PÁGINA 1 -->
             <div class="character-card">
                 <div class="card-header">
                     <h2 class="character-name">Homer Simpson</h2>
@@ -286,13 +328,175 @@
                     Motivado casi exclusivamente por las rosquillas y la comida. Su corrupción nace de la pura pereza y la estupidez, no de una mente criminal o de la maldad.
                 </div>
             </div>
+
+            <!-- PÁGINA 2 (NUEVOS PERSONAJES) -->
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Waylon Smithers</h2>
+                    <span class="badge-estereotipo">Asistente sumiso</span>
+                </div>
+                <div class="card-body">
+                    Mano derecha incondicional del Sr. Burns. Aunque proyecta una imagen de obediencia ciega, es un hombre culto, coleccionista apasionado de Malibu Stacy y la verdadera mente que mantiene a flote la planta nuclear.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Seymour Skinner</h2>
+                    <span class="badge-estereotipo">Director severo</span>
+                </div>
+                <div class="card-body">
+                    Burócrata escolar obsesionado con las normas y el orden. Su rigidez es una máscara para ocultar sus traumas como veterano de Vietnam y la estricta codependencia que mantiene con su madre, Agnes.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Moe Szyslak</h2>
+                    <span class="badge-estereotipo">Tabernero cascarrabias</span>
+                </div>
+                <div class="card-body">
+                    Eternamente infeliz, propenso a la ira y dueño de un bar lúgubre. Debajo de su miseria y sus constantes amenazas, esconde una profunda soledad y una oculta desesperación por ser amado y aceptado.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Barney Gumble</h2>
+                    <span class="badge-estereotipo">Borracho del pueblo</span>
+                </div>
+                <div class="card-body">
+                    El cliente más fiel de Moe. Aunque suele ser el blanco de los chistes por su estado, en realidad es un alma sensible con un talento oculto para el canto de ópera, la dirección cinematográfica y el pilotaje de helicópteros.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Milhouse Van Houten</h2>
+                    <span class="badge-estereotipo">Chico nerd e indefenso</span>
+                </div>
+                <div class="card-body">
+                    El eterno segundón y mejor amigo de Bart. Es ingenuo, dependiente de sus gafas y arrastra las inseguridades del divorcio de sus padres, pero posee una lealtad inquebrantable hacia quienes aprecia.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Ralph Wiggum</h2>
+                    <span class="badge-estereotipo">Niño despistado</span>
+                </div>
+                <div class="card-body">
+                    Conocido por sus frases absurdas y su total desconexión de la realidad escolar. Vive en su propio mundo de fantasía; aunque es considerado lento, a menudo muestra una inocencia pura y momentos de extraña lucidez.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Edna Krabappel</h2>
+                    <span class="badge-estereotipo">Profesora apática</span>
+                </div>
+                <div class="card-body">
+                    Cínica, fumadora empedernida y cansada de la enseñanza pública. Su actitud desganada en el aula es el resultado de años de frustraciones amorosas y un sistema educativo que ha aplastado su vocación original.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Kent Brockman</h2>
+                    <span class="badge-estereotipo">Presentador egocéntrico</span>
+                </div>
+                <div class="card-body">
+                    La cara de las noticias locales de Springfield. Está obsesionado con su estatus, su alto salario y la cirugía estética, estando dispuesto a vender cualquier narrativa sensacionalista con tal de mantener su audiencia.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Abram Simpson</h2>
+                    <span class="badge-estereotipo">Abuelo senil</span>
+                </div>
+                <div class="card-body">
+                    Lleno de historias incoherentes, quejas interminables y descuidado por su familia en el asilo. A pesar de su demencia senil, es un condecorado héroe de la Segunda Guerra Mundial con un pasado lleno de secretos sorprendentes.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="card-header">
+                    <h2 class="character-name">Fat Tony</h2>
+                    <span class="badge-estereotipo">Capo de la mafia</span>
+                </div>
+                <div class="card-body">
+                    Líder del crimen organizado de Springfield que maneja los hilos de la corrupción local. Mezcla de forma cómica sus brutales actividades criminales con un comportamiento caballeroso, refinado y un gran amor por la ópera.
+                </div>
+            </div>
         </div>
+
+        <!-- Contenedor del Paginador Dinámico -->
+        <div class="pagination-container" id="pagination-controls"></div>
     </main>
 
     <footer>
         <p>Hecho con 💛 y rosquillas</p>
     </footer>
 
+    <!-- Lógica del Paginador sin alterar el diseño base -->
+    <script>
+        const CARDS_PER_PAGE = 10;
+        const grid = document.getElementById('character-grid');
+        const cards = Array.from(grid.getElementsByClassName('character-card'));
+        const paginationControls = document.getElementById('pagination-controls');
+        const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+        let currentPage = 1;
+
+        function showPage(page) {
+            currentPage = page;
+            const start = (page - 1) * CARDS_PER_PAGE;
+            const end = start + CARDS_PER_PAGE;
+
+            cards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            renderControls();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderControls() {
+            paginationControls.innerHTML = '';
+
+            // Botón Anterior
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'pagination-button';
+            prevBtn.innerText = '« Ant';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => showPage(currentPage - 1);
+            paginationControls.appendChild(prevBtn);
+
+            // Números de Página
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `pagination-button ${i === currentPage ? 'active' : ''}`;
+                pageBtn.innerText = i;
+                pageBtn.onclick = () => showPage(i);
+                paginationControls.appendChild(pageBtn);
+            }
+
+            // Botón Siguiente
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-button';
+            nextBtn.innerText = 'Sig »';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => showPage(currentPage + 1);
+            paginationControls.appendChild(nextBtn);
+        }
+
+        // Inicializar la primera vista
+        showPage(1);
+    </script>
 </body>
 
 </html>
